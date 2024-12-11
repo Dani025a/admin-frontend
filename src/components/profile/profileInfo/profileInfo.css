@@ -1,0 +1,46 @@
+.profile-info {
+    flex: 1;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .profile-info .title {
+    margin-bottom: 20px;
+  }
+  
+  .profile-detail {
+    font-family: 'Saira Condensed', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    margin: 10px 0;
+    color: black;
+  }
+  
+  .reset-password-button {
+    font-family: 'Saira Condensed', sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .reset-password-button:hover {
+    background-color: var(--active-color);
+    transform: translateY(-2px);
+  }
+  
+  .reset-password-button:active {
+    background-color: var(--active-color);
+    transform: translateY(1px);
+  }
+  

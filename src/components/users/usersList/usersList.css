@@ -1,0 +1,16 @@
+.users-list {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    background-color: white;
+    margin: 0 auto;
+  }
+  
+  .title {
+    font-family: 'Saira Condensed', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--text-color);
+  }
+  

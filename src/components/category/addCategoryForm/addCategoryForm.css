@@ -1,0 +1,28 @@
+.add-category-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  .add-category-form .input-field,
+  .add-category-form .select-field {
+    margin-bottom: 10px;
+  }
+
+  .input-field {
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 2px solid #00b5ff;
+    border-radius: 0.25rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .input-field:focus {
+    border-color: #007bb5;
+  }
+  
+  .add-category-form .small-button {
+    align-self: flex-start;
+  }
+  

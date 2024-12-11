@@ -1,0 +1,20 @@
+.user-card {
+    background-color: white;
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .user-card.inactive {
+    background-color: var(--hover-color);
+  }
+  
+  .user-details {
+    font-family: 'Saira Condensed', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    margin: 5px 0;
+  }
+  

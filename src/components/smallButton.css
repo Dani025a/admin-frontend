@@ -1,0 +1,46 @@
+.small-button {
+  padding: 0.2rem 0.5rem;
+    border-radius: 0.25rem;
+    background-color: var(--primary-color);;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    font-family: 'Saira Condensed', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+    text-transform: uppercase;
+  }
+  
+  
+  .small-button.primary {
+    background-color: var(--primary-color);
+  }
+  
+  .small-button.primary:hover {
+    background-color: #00A9C9;
+  }
+  
+  .small-button.delete {
+    background-color: #FF4D4F;
+  }
+  
+  .small-button.delete:hover {
+    background-color: #D93636;
+  }
+  
+  .small-button.update {
+    background-color: #52C41A;
+  }
+  
+  .small-button.update:hover {
+    background-color: #3C8618;
+  }
+  
+  .small-button:disabled {
+    background-color: #D9D9D9;
+    cursor: not-allowed;
+  }

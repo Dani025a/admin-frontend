@@ -1,0 +1,22 @@
+.global-select-field {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #fff;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+  
+  .global-select-field:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  .global-select-field option:disabled {
+    color: #ccc;
+  }
+  

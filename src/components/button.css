@@ -1,0 +1,36 @@
+.button {
+  padding: 0rem 7rem;
+  border-radius: 0.25rem;
+  background-color: var(--primary-color);;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+
+.button:hover {
+  background-color: #00A9C9;
+}
+
+.button.delete {
+  background-color: #FF4D4F; 
+}
+
+.button.delete:hover {
+  background-color: #D93636;
+}
+
+.button.update {
+  background-color: #52C41A; 
+}
+
+.button.update:hover {
+  background-color: #3C8618;
+}
+
+.button:disabled {
+  background-color: #D9D9D9;
+  cursor: not-allowed;
+}

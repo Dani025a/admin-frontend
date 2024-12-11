@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@400;700&display=swap');
+
+:root {
+  --primary-color: #01B6DE;
+  --active-color: #0069B5;
+  --hover-color: rgba(217, 217, 217, 0.75);
+}
+
+.button-text {
+    font-family: 'Saira Condensed', sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+    text-transform: uppercase;
+  }
+
+.title{
+    font-family: 'Saira Condensed', sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    color: black;
+    text-transform: uppercase;
+}
+
+.input-text{
+    font-family: 'Saira Condensed', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: black;
+}
+
+
+.h3 {
+  margin: 0;
+  font-family: 'Saira Condensed', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  text-transform: uppercase;
+}
+
+
+
+.error-message {
+    font-family: 'Saira Condensed', sans-serif;
+    color: red;
+    font-size: 15px;
+    margin: 0;
+    text-align: right;
+}
+
+  .link-text:hover {
+    color: #007bb5;
+  }

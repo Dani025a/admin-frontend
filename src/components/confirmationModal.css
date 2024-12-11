@@ -1,0 +1,65 @@
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+  }
+  
+  .modal-title {
+    font-family: 'Saira Condensed', sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+  }
+  
+  .modal-message {
+    font-family: 'Saira Condensed', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: black;
+    margin-bottom: 20px;
+  }
+  
+  .modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .confirm-button,
+  .cancel-button {
+    font-family: 'Saira Condensed', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  .confirm-button {
+    background-color: red;
+    color: white;
+  }
+  
+  .cancel-button {
+    background-color: gray;
+    color: white;
+  }
+  

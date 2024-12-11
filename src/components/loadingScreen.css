@@ -1,0 +1,58 @@
+.loading-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background: none; /* No background */
+    color: var(--primary-color); /* Use primary color for text */
+    font-family: Arial, sans-serif;
+  }
+  
+  .spinner {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .double-bounce1,
+  .double-bounce2 {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: var(--primary-color); /* Use primary color */
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: bounce 2s infinite ease-in-out;
+  }
+  
+  .double-bounce2 {
+    animation-delay: -1s;
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: scale(0);
+    }
+    50% {
+      transform: scale(1);
+    }
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+    animation: fade-in 2s infinite;
+  }
+  
+  @keyframes fade-in {
+    0%, 100% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 1;
+    }
+  }

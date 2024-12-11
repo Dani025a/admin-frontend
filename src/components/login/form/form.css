@@ -1,0 +1,35 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-input {
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 2px solid #00b5ff;
+    border-radius: 0.25rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-input:focus {
+    border-color: #007bb5;
+  }
+  
+  .text-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem;
+    min-height: 1.5rem;
+  }
+  

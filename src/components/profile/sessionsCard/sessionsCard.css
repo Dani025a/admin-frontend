@@ -1,0 +1,20 @@
+.session-card {
+    background-color: white;
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .session-card.deactivated {
+    background-color: var(--primary-color);
+  }
+  
+  .session-details {
+    font-family: 'Saira Condensed', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    margin: 5px 0;
+  }
+  

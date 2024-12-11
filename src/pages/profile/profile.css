@@ -1,0 +1,69 @@
+.profile-page {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+  padding: 40px;
+}
+
+.profile-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.profile-info {
+  margin-bottom: 20px;
+}
+
+.reset-password-button {
+  display: block;
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.sessions-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.session-item {
+  padding: 15px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+}
+
+.session-item.activated {
+  border-color: #28a745;
+  background-color: #d4edda;
+}
+
+.session-item.deactivated {
+  border-color: #dc3545;
+  background-color: #f8d7da;
+}
+
+.session-info {
+  flex-grow: 1;
+  margin-right: 15px;
+}
+
+.delete-session-button {
+  background-color: #dc3545;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

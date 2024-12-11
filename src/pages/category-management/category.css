@@ -1,0 +1,51 @@
+.category-page {
+  padding: 20px;
+}
+
+.title {
+  margin-bottom: 20px;
+}
+
+.category-columns {
+  display: flex;
+  gap: 20px;
+}
+
+.category-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.category-column .h3 {
+  margin-bottom: 10px;
+}
+
+.error-message {
+  font-family: 'Saira Condensed', sans-serif;
+  color: red;
+  font-size: 15px;
+  text-align: right;
+}
+
+.category-column .add-category-form {
+  margin-bottom: 20px;
+}
+
+.category-column .category-list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.category-column .category-list {
+  max-height: 400px;
+}
+
+.category-column .category-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.category-column .category-list::-webkit-scrollbar-thumb {
+  background-color: var(--hover-color);
+  border-radius: 4px;
+}

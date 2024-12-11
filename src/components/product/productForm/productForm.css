@@ -1,0 +1,193 @@
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid var(--primary-color);
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-control:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+  outline: none;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.textarea-field {
+  height: 100px;
+  resize: vertical;
+}
+
+.image-upload {
+}
+
+
+
+.seo-section h4 {
+  margin-bottom: 1.25rem;
+  color: #444;
+  font-size: 1.25rem;
+}
+
+.seo-section .form-group {
+  margin-bottom: 1rem;
+}
+
+.seo-section .form-group label {
+  color: #555;
+  font-weight: 600;
+}
+
+.seo-section .form-control {
+  border: 1px solid #ccc;
+}
+
+.seo-section .form-control:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+.seo-section .textarea-field {
+  height: 120px;
+}
+
+.product-form-container {
+  max-width: 1200px; 
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.product-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-sections {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.product-form-left,
+.product-form-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #fafafa;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.error-message {
+  color: red;
+  margin-bottom: 10px;
+}
+
+.filters-section {
+  margin-top: 20px;
+}
+
+.filter-section {
+  border: 1px solid #dcdcdc;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  background-color: #fff;
+}
+
+.filter-header {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.filter-values {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.checkbox-field {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-field input {
+  margin-right: 5px;
+}
+
+.add-filter-value-form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.add-filter-section {
+  border-top: 1px solid #dcdcdc;
+  padding-top: 15px;
+  margin-top: 20px;
+}
+
+.add-filter-section h4 {
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.add-filter-section input,
+.add-filter-section select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.add-filter-section select {
+  width: 200px;
+}
+
+@media (max-width: 768px) {
+  .form-sections {
+    flex-direction: column;
+  }
+
+  .product-form-left,
+  .product-form-right {
+    width: 100%;
+  }
+
+  .filter-values {
+    flex-direction: column;
+  }
+
+  .add-filter-value-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .add-filter-section select {
+    width: 100%;
+  }
+}

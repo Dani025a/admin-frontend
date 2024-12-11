@@ -1,0 +1,14 @@
+
+  .input-field-input {
+    width: 70%;
+    padding: 0.75rem;
+    border: 2px solid var(--primary-color);;
+    border-radius: 0.25rem;
+  }
+  
+  .input-field-input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+    outline: none;
+  }
+  
