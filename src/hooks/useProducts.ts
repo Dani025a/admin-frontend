@@ -125,6 +125,7 @@ const useProduct = (): UseProductResult => {
   
       const existingImageUrls: string[] = [];
       const newImageFiles: File[] = [];
+      
   
       data.images?.forEach((image) => {
         if (typeof image === "string") {
@@ -188,6 +189,8 @@ const useProduct = (): UseProductResult => {
           filtervalue: filter.value,
         }));
       }
+
+      console.log("Fetched Product:", response.data);
 
       setProduct(productData);
     } catch (err: any) {

@@ -1,4 +1,3 @@
-import React from 'react';
 import Header from '../../components/login/header/header';
 import Form from '../../components/login/form/form';
 import './login.css'

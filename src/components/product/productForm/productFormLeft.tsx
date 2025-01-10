@@ -5,7 +5,7 @@ import InputField from '../../inputField';
 import GlobalSelectField from '../../globalSelectField';
 import { Status, ProductCreationPayload } from '../../../types/types';
 import './productForm.css';
-import TextArea from '../../textarea';
+import TextArea from '../../textArea';
 
 interface ProductFormLeftProps {
   formData: ProductCreationPayload;

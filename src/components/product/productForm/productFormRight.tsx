@@ -42,30 +42,28 @@ function ProductFormRight({
   const [newFilterValues, setNewFilterValues] = useState<string>('');
   const [addingFilter, setAddingFilter] = useState<boolean>(false);
   const [addingFilterValue, setAddingFilterValue] = useState<boolean>(false);
+  const [newFilterAdded, setNewFilterAdded] = useState(false);
 
   useEffect(() => {
     if (formData.subSubCategoryId) {
-      getFiltersForSubSubCategory(formData.subSubCategoryId).then(
-        (fetchedFilters) => {
-          const updatedFilters = fetchedFilters.map((filter) => {
-            const selectedValues = formData.filters
-              .filter((f) => filter.filterValues.some((v) => v.id === f.filterValueId))
-              .map((f) => f.filterValueId);
+      getFiltersForSubSubCategory(formData.subSubCategoryId).then((fetchedFilters) => {
+        const updatedFilters = fetchedFilters.map((filter) => {
+          const selectedValues = formData.filters
+            .filter((f) => f.filterOptionId === filter.id)
+            .map((f) => f.filterValueId);
   
-            return {
-              ...filter,
-              filterValues: filter.filterValues.map((value) => ({
-                ...value,
-                selected: selectedValues.includes(value.id),
-              })),
-            };
-          });
-          setFilters(updatedFilters);
-        }
-      );
+          return {
+            ...filter,
+            filterValues: filter.filterValues.map((value) => ({
+              ...value,
+              selected: selectedValues.includes(value.id),
+            })),
+          };
+        });
+        setFilters(updatedFilters);
+      });
     }
-    console.log(formData.filters)
-  }, [formData.subSubCategoryId, formData.filters]);
+  }, [formData.subSubCategoryId, newFilterAdded]);
   
   
 
@@ -83,6 +81,7 @@ function ProductFormRight({
         const existing = prev.filters.find(
           (f) => f.filterOptionId === filterOption.id && f.filterValueId === value
         );
+  
         return existing
           ? {
               ...prev,
@@ -98,10 +97,12 @@ function ProductFormRight({
       } else if (filterOption.type === FilterType.dropdown || filterOption.type === FilterType.slider) {
         return {
           ...prev,
-          filters: [
-            ...prev.filters.filter((f) => f.filterOptionId !== filterOption.id),
-            { filterOptionId: filterOption.id, filterValueId: value },
-          ],
+          filters: value
+            ? [
+                ...prev.filters.filter((f) => f.filterOptionId !== filterOption.id),
+                { filterOptionId: filterOption.id, filterValueId: value },
+              ]
+            : prev.filters.filter((f) => f.filterOptionId !== filterOption.id),
         };
       }
       return prev;
@@ -113,9 +114,9 @@ function ProductFormRight({
       toast.error('Please provide both filter name and type.');
       return;
     }
-
+  
     setAddingFilter(true);
-
+  
     try {
       const filterValuesArray =
         newFilterType !== FilterType.slider
@@ -127,13 +128,13 @@ function ProductFormRight({
         filterValues: filterValuesArray,
         filterType: newFilterType,
       });
-
+  
       if (createdFilter) {
         setNewFilterName('');
         setNewFilterType(FilterType.checkbox);
         setNewFilterValues('');
         toast.success('Filter added successfully.');
-        await getFiltersForSubSubCategory(formData.subSubCategoryId!);
+        setNewFilterAdded((prev) => !prev);
       }
     } catch {
       toast.error('Failed to add filter.');
@@ -263,14 +264,12 @@ function ProductFormRight({
                   )}
                   {filter.type === FilterType.slider && (
                     <div className="form-group">
-                      <InputField
-                        type="number"
-                        id={`slider-${filter.id}`}
-                        name={`slider-value-${filter.id}`}
+                      <select
+                        id={`filter-${filter.id}-select`}
                         value={
                           formData.filters.find(
                             (f) => f.filterOptionId === filter.id
-                          )?.filterValueId?.toString() || ''
+                          )?.filterValueId || ''
                         }
                         onChange={(e) =>
                           handleFilterChange(
@@ -278,18 +277,22 @@ function ProductFormRight({
                             Number(e.target.value)
                           )
                         }
-                        placeholder={`Enter ${filter.name}`}
-                        className="slider-input"
-                      />
+                      >
+                        <option value="">Select {filter.name}</option>
+                        {filter.filterValues?.map((value) => (
+                          <option key={value.id} value={value.id}>
+                            {value.value}
+                          </option>
+                        ))}
+                      </select>
                     </div>
                   )}
                 </div>
-                {filter.type !== FilterType.slider && (
                   <AddFilterValueForm
                     filterOptionId={filter.id}
                     onAdd={handleAddFilterValue}
                   />
-                )}
+
               </div>
             ))
           ) : (

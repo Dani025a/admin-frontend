@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import useProduct from '../../../hooks/useProducts';
-import {useCategory} from '../../../hooks/useCategory';
+import { useCategory } from '../../../hooks/useCategory';
 import { useNavigate, useParams } from 'react-router-dom';
 import ProductFormLeft from './productFormLeft';
 import LoadingScreen from '../../loadingScreen';
@@ -15,7 +15,6 @@ function ProductForm() {
   const navigate = useNavigate();
   const { addProduct, editProduct, getProduct, product, isLoading, error, success } = useProduct();
 
-  
   const subSubCategoryHook = useCategory<SubSubCategory>('SubSubCategory');
   const {
     data: subSubCategories,
@@ -25,13 +24,11 @@ function ProductForm() {
   } = subSubCategoryHook;
 
   useEffect(() => {
+    getSubSubCategories();
     if (isEditMode && id) {
-        getProduct(Number(id));
-        getSubSubCategories();
-      }
-      else
-      getSubSubCategories();
-  }, []);
+      getProduct(Number(id));
+    }
+  }, [isEditMode, id]);
 
   const [formData, setFormData] = useState<ProductCreationPayload>({
     name: '',
@@ -51,34 +48,28 @@ function ProductForm() {
     images: [],
   });
 
-
-
   useEffect(() => {
     if (isEditMode && product) {
       setFormData({
         name: product.name,
         description: product.description,
-        price: product.price,
+        price: parseFloat(product.price.toString()),
         stock: product.stock,
         brand: product.brand,
-        weight: product.weight,
-        length: product.length,
-        width: product.width,
-        height: product.height,
+        weight: parseFloat(product.weight.toString()),
+        length: parseFloat(product.length.toString()),
+        width: parseFloat(product.width.toString()),
+        height: parseFloat(product.height.toString()),
         status: product.status,
         seoTitle: product.seoTitle,
         seoDescription: product.seoDescription,
         metaKeywords: product.metaKeywords,
         subSubCategoryId: product.subSubCategoryId,
-        filters: product.filters?.flatMap((f) =>
-          f.filterValues.map((v) => ({
-            filterOptionId: Number(f.filterOptionId),
-            filterValueId: v.id,
-            filtervalue: v.value,
-          }))
-        ) || [],
-        images: product.images?.map((img) => img.url) || [],
-        // ... other fields
+        filters: product.filters.map((f) => ({
+          filterOptionId: f.filterOptionId,
+          filterValueId: f.filterValueId,
+        })),
+        images: product.images.map((img) => img.url),
       });
     }
   }, [isEditMode, product]);
@@ -91,10 +82,19 @@ function ProductForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+  
+    const combinedImages = [
+      ...(formData.images || []).filter((img) => typeof img === 'string'),
+      ...(formData.images || []).filter((img) => img instanceof File),
+    ];
+  
+    // Create the final payload
+    const payload = { ...formData, images: combinedImages };
+  
     if (isEditMode && id) {
-      await editProduct(Number(id), formData);
+      await editProduct(Number(id), payload);
     } else {
-      await addProduct(formData);
+      await addProduct(payload);
     }
   };
 
@@ -107,10 +107,7 @@ function ProductForm() {
       {subSubError && <div className="error-message">{subSubError}</div>}
       <form onSubmit={handleSubmit} className="product-form">
         <div className="form-sections">
-          <ProductFormLeft
-            formData={formData}
-            setFormData={setFormData}
-          />
+          <ProductFormLeft formData={formData} setFormData={setFormData} />
           <ProductFormRight
             formData={formData}
             setFormData={setFormData}

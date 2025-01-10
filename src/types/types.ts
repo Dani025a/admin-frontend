@@ -23,6 +23,27 @@ export interface ProductCreationPayload {
   images?: (File | string)[];
 }
 
+export interface UpdateProduct {
+  name: string;
+  description: string;
+  price: number;
+  stock: number;
+  brand: string;
+  weight: number;
+  length: number;
+  width: number;
+  height: number;
+  status: Status;
+  seoTitle: string;
+  seoDescription: string;
+  metaKeywords: string;
+  subSubCategoryId?: number;
+  discountId?: number;
+  filters: { filterOptionId: number; filterValueId: number; filtervalue: string }[];
+  existingImages?: string[];
+  newImages?: File[];
+}
+
 export interface Product {
   id?: number;
   name: string;
@@ -49,6 +70,31 @@ export interface Product {
   filters?: FilterOption[];
 }
 
+export interface Product {
+  id?: number;
+  name: string;
+  description: string;
+  price: number;
+  stock: number;
+  createdAt?: Date;
+  updatedAt?: Date;
+  discountId?: number;
+  discount?: Discount;
+  brand: string;
+  weight: number;
+  length: number;
+  width: number;
+  height: number;
+  status: Status;
+  seoTitle: string;
+  seoDescription: string;
+  metaKeywords: string;
+  subSubCategoryId?: number;
+  subSubCategory?: SubSubCategory;
+  images?: Image[];
+  reviews?: Review[];
+  filters?: FilterOption[];
+}
 
 export interface Discount {
   id: number;
